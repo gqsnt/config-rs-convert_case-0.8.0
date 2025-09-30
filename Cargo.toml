@@ -144,7 +144,7 @@ ron = { version = "0.8.1", optional = true }
 json5_rs = { version = "0.4.1", optional = true, package = "json5" }
 corn = { version = "0.10.0", optional = true, package = "libcorn" }
 indexmap = { version = "2.11.4", features = ["serde"], optional = true }
-convert_case = { version = "0.8.0", optional = true }
+convert_case = { git="https://github.com/gqsnt/convert-case-last-rust-version", rev = "0640778c72cdf55c00b29744976d50e7000ebe71", optional = true }
 pathdiff = "0.2.3"
 winnow = "0.7.13"
 serde-untagged = { version = "0.1.9", optional = true }
