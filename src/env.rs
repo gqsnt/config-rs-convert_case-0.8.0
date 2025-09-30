@@ -221,7 +221,7 @@ impl Environment {
     }
 }
 
-impl <'a>Source for Environment {
+impl Source for Environment {
     fn clone_into_box(&self) -> Box<dyn Source + Send + Sync> {
         Box::new((*self).clone())
     }
