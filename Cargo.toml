@@ -150,7 +150,7 @@ winnow = "0.7.13"
 serde-untagged = { version = "0.1.9", optional = true }
 
 [dev-dependencies]
-serde = { version = "1.0.226", features = ["derive"] }
+serde = { version = "1.0.228", features = ["derive"] }
 float-cmp = "0.10.0"
 chrono = { version = "0.4.42", features = ["serde"] }
 tokio = { version = "1.47.1", features = ["rt-multi-thread", "macros", "fs", "io-util", "time"]}
