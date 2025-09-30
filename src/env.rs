@@ -41,7 +41,7 @@ pub struct Environment {
     /// that the configuration would expect. For example if you have the `kebab-case` attribute
     /// for your serde config types, you may want to pass `Case::Kebab` here.
     #[cfg(feature = "convert-case")]
-    convert_case: Option<Case>,
+    convert_case: Option<Case<'static>>,
 
     /// Optional character sequence that separates each env value into a vector. only works when `try_parsing` is set to true
     /// Once set, you cannot have type String on the same environment, unless you set `list_parse_keys`.
@@ -118,12 +118,12 @@ impl Environment {
     }
 
     #[cfg(feature = "convert-case")]
-    pub fn with_convert_case(tt: Case) -> Self {
+    pub fn with_convert_case(tt: Case<'static>) -> Self {
         Self::default().convert_case(tt)
     }
 
     #[cfg(feature = "convert-case")]
-    pub fn convert_case(mut self, tt: Case) -> Self {
+    pub fn convert_case(mut self, tt: Case<'static>) -> Self {
         self.convert_case = Some(tt);
         self
     }
@@ -221,7 +221,7 @@ impl Environment {
     }
 }
 
-impl Source for Environment {
+impl <'a>Source for Environment {
     fn clone_into_box(&self) -> Box<dyn Source + Send + Sync> {
         Box::new((*self).clone())
     }
